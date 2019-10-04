@@ -19,7 +19,10 @@ io.on("connection", socket => {
     console.log(data);
     socket.broadcast.emit("typing", data);
   });
-
+  socket.on("check", data => {
+    console.log(data);
+    socket.emit("check", data);
+  });
 });
 
 server.listen(port, () => console.log("server running on port:" + port));
